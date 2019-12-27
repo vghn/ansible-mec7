@@ -1,0 +1,85 @@
+---
+# System
+ntp_timezone: US/Mountain
+
+# Logs
+remote_logs_enabled: true
+remote_logs_server: logs.ghn.me
+
+# Essential packages
+debian_software:
+  - curl
+  - htop
+  - tmux
+  - unzip
+  - vim
+  - wget
+  - jq
+
+# Apt repositories
+apt_repositories:
+  - name: GIT
+    repo: ppa:git-core/ppa
+
+# OS Hardening
+sysctl_overwrite:
+  # Enable IPv4 traffic forwarding
+  net.ipv4.ip_forward: 1
+  # Do not disable IPv6
+  net.ipv6.conf.all.disable_ipv6: 0
+  # Enable IPv6 traffic forwarding
+  net.ipv6.conf.all.forwarding: 1
+  # Increase the amount of inotify watchers
+  fs.inotify.max_user_watches: 524288
+  # Do not change the default PTRACE value
+  kernel.yama.ptrace_scope: 0
+
+# SSH Hardening
+# Needed for Duplicacy SFTP
+sftp_enabled: true
+# Needed for Visual Studio Code Remote SSH Connection
+ssh_allow_tcp_forwarding: true
+
+# Security
+security_autoupdate_enabled: true
+security_fail2ban_enabled: true
+
+# Firewall
+firewall_enabled: false
+
+# Accounts
+accounts:
+  - name: vlad
+    comment: Vlad Ghinea
+    groups: admins
+    append: yes
+    authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE0yyqRUbBGOW9PcYyuaUMaRi/EFwL59E3wwMn5dJAKQ vlad@ghn.me
+  - name: cosmin
+    comment: Cosmin Ionica
+    groups: admins
+    append: yes
+    authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAN+Ge6UYazTf6rnwdBP7okOdyBNeMUW0pQYkN79ajis cosmin@mec7.com
+  - name: cmedia
+    comment: Media User
+    uid: 7777
+
+# Docker
+docker_users:
+  - vlad
+  - cosmin
+
+# MSMTP relay
+msmtp_enabled: false
+msmtp_log: syslog
+msmtp_accounts:
+  - account: Sendgrid
+    host: smtp.sendgrid.net
+    port: 587
+    auth: "on"
+    from: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['email']}}"
+    user: apikey
+    password: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['password']}}"
+msmtp_default_account: Sendgrid
+msmtp_alias_default: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['email']}}"

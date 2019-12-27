@@ -1,0 +1,9 @@
+---
+# NFS
+nfs_mounts:
+  - name: NAS
+    src: 192.168.1.63:/data
+    path: /data
+    opts: hard,rsize=1048576,wsize=1048576,timeo=600,retrans=2,_netdev
+    owner: cmedia
+    group: cmedia

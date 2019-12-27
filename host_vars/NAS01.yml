@@ -1,0 +1,57 @@
+---
+# NFS Server
+nfs_exports:
+  - '/data *(rw,sync,all_squash,anonuid=7777,anongid=7777)'
+
+# Samba Server
+samba_netbios_name: NAS
+samba_server_string: 'NAS'
+samba_workgroup: WORKGROUP
+samba_load_printers: false
+samba_mitigate_cve_2017_7494: false
+samba_users:
+  - name: cmedia
+    password: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/samba/users:data')['cmedia']}}"
+samba_shares:
+  - name: backup
+    comment: 'Backup'
+    path: '/data/backup'
+    owner: 'cmedia'
+    valid_users: 'cmedia'
+    public: 'no'
+    guest_ok: 'no'
+    writable: 'yes'
+    browseable: 'yes'
+    group: 'cmedia'
+  - name: home
+    comment: 'Home'
+    path: '/data/home'
+    owner: 'cmedia'
+    valid_users: 'cmedia'
+    public: 'no'
+    guest_ok: 'no'
+    writable: 'yes'
+    browseable: 'yes'
+    group: 'cmedia'
+  - name: work
+    comment: 'Work'
+    path: '/data/work'
+    owner: 'cmedia'
+    valid_users: 'cmedia'
+    public: 'no'
+    guest_ok: 'no'
+    writable: 'yes'
+    browseable: 'yes'
+    group: 'cmedia'
+  - name: media
+    comment: 'Media'
+    owner: 'cmedia'
+    path: '/data/MEDIA'
+    valid_users: 'cmedia cosmin'
+    public: 'yes'
+    guest_ok: 'yes'
+    writable: 'yes'
+    browseable: 'yes'
+    force_create_mode: 0664
+    force_directory_mode: 0775
+    group: 'cmedia'

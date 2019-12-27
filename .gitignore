@@ -1,0 +1,9 @@
+# Private
+.env
+
+# Ansible
+deploy_rsa
+*.retry
+
+# Other
+/tmp

@@ -1,4 +1,4 @@
-GERM   ansible_host=home.ioni.ca ansible_port=1122
+ZODIAC   ansible_host=home.ioni.ca ansible_port=1122
 NAS01  ansible_host=home.ioni.ca ansible_port=6322
 SPARK  ansible_host=home.ioni.ca ansible_port=7722
 HOLE   ansible_host=home.ioni.ca ansible_port=9922
@@ -20,7 +20,7 @@ NAS01
 NAS01
 
 [vm]
-GERM
+ZODIAC
 HOLE
 NAS01
 SPARK

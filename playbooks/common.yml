@@ -17,7 +17,7 @@
   roles:
     - role: geerlingguy.repo-epel
       when: ansible_os_family == "RedHat"
-    - geerlingguy.ntp
+    - yatesr.timezone
     - geerlingguy.pip
     - role: geerlingguy.swap
       when: swap_enabled is defined and swap_enabled

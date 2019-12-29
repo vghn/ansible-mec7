@@ -1,6 +1,6 @@
 ---
 # System
-ntp_timezone: US/Mountain
+timezone: US/Mountain
 
 # Logs
 remote_logs_enabled: true

@@ -13,3 +13,4 @@
 - src: geerlingguy.swap
 - src: rvm.ruby
 - src: vladgh.common
+- src: yatesr.timezone

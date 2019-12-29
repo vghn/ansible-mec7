@@ -6,16 +6,6 @@ ntp_timezone: US/Mountain
 remote_logs_enabled: true
 remote_logs_server: logs.ghn.me
 
-# Essential packages
-debian_software:
-  - curl
-  - htop
-  - tmux
-  - unzip
-  - vim
-  - wget
-  - jq
-
 # Apt repositories
 apt_repositories:
   - name: GIT
@@ -64,22 +54,3 @@ accounts:
   - name: cmedia
     comment: Media User
     uid: 7777
-
-# Docker
-docker_users:
-  - vlad
-  - cosmin
-
-# MSMTP relay
-msmtp_enabled: false
-msmtp_log: syslog
-msmtp_accounts:
-  - account: Sendgrid
-    host: smtp.sendgrid.net
-    port: 587
-    auth: "on"
-    from: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['email']}}"
-    user: apikey
-    password: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['password']}}"
-msmtp_default_account: Sendgrid
-msmtp_alias_default: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/msmtp/sendgrid:data')['email']}}"

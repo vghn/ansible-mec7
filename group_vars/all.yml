@@ -28,7 +28,7 @@ sysctl_overwrite:
 # Needed for Duplicacy SFTP
 sftp_enabled: true
 # Needed for Visual Studio Code Remote SSH Connection
-ssh_allow_tcp_forwarding: true
+ssh_allow_tcp_forwarding: 'yes'
 
 # Security
 security_autoupdate_enabled: true

@@ -1,11 +1,8 @@
 [local]
-HOLE   ansible_host=192.168.1.99
-NAS    ansible_host=192.168.1.63
-SPARK  ansible_host=192.168.1.77
-ZODIAC ansible_host=192.168.1.11
-
-[local:vars]
-ansible_ssh_common_args='-o ProxyJump=home.ioni.ca:1122'
+HOLE
+NAS
+SPARK
+ZODIAC
 
 [docker]
 SPARK

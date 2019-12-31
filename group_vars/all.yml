@@ -3,8 +3,15 @@
 timezone: US/Mountain
 
 # Logs
+install_ca_certificates: true
 remote_logs_enabled: true
-remote_logs_server: logs.ghn.me
+remote_logs_server: 'listener.logz.io'
+remote_logs_port: '5001'
+remote_logs_permitted_peer: '*.logz.io'
+remote_logs_template:
+  name: 'logzFormatFileTagName'
+  string: '[{{ logzio_token }}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=syslog] %msg%\n'
+logzio_token: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/logzio:data')['token']}}"
 
 # Apt repositories
 apt_repositories:
@@ -27,7 +34,7 @@ sysctl_overwrite:
 # SSH Hardening
 # Needed for Duplicacy SFTP
 sftp_enabled: true
-# Needed for Visual Studio Code Remote SSH Connection
+# Needed for the bastion host or for Visual Studio Code Remote SSH Connection
 ssh_allow_tcp_forwarding: 'yes'
 
 # Security

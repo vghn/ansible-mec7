@@ -1,0 +1,3 @@
+---
+# Audit support is not in Raspberry Pi's kernel
+os_auditd_enabled: false

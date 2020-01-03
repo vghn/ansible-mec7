@@ -15,7 +15,7 @@
   - name: Provision Ansible user authorized keys
     authorized_key:
       user: ansible
-      key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDGwpXPnFlUfexcGBJ+XKNeBGqIL9EGQOez6dRWisW7stWdsDBfAsMDEdiOZvlO+70sKarVPpPVQM25eamokMSiMsulZcFLh1ifj34I58y3zPNolFuUiD4+LklcckuC1mMFjFFMv06QG0buT48f+grukwuM+rgMwz1SK3gCTFfLfskQUYhs3Cjk1So7t50+D3QdefmKsrQNFsafkaLnY63CPR4fuwBadkv2Lrw2+N2rj0ziGHRMV5MYc/9SvKBfJgF+lYXUiffl6nEyk9c3Yd5Pd/pAAkrIi+4M796HAMztwVJxe/aNmc159uLXEvvDno2VyqyK0+hEMkTy9XbSc4X4sS+znwREL1OPt+T1BseOM7w0xMg9+WKZjkwPs/MheBch6JfoYLo29bUyX4jp2RQ/01QRq0vlV2e/y1u9iIc+yyh45Qt+LzDrlymO+1hTaqgtmv9y61Nh7zOhMj8Iae8hS+yOqV6pr/Jsy16K4EXew4NqmRpa4eXrahwuPqLxN88M9P9rE2KKYs01h5MvFhJUQhIHZ7w/n0ibfMi/Rxsr541VoqtESv22CuIPWSX97esL5f7NnAyodICMeAk+SX78CjdX8fqg7VJlttJm0gRZfdhqpmjTWChzbderlBGTPEdIxkZbToxcrdm4EU070Vyq4Syipf0teRGgQqsxHWGKIw== Deploy
+      key: "{{ deploy_ssh_rsa }}"
       exclusive: yes
   - name: Add Ansible user to Sudoers
     lineinfile:

@@ -1,10 +1,10 @@
-[bastion]
-zodiac
-
 [docker]
 spark
 
 [firewall]
+zodiac
+
+[harden]
 zodiac
 
 [monitor]

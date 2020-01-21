@@ -1,7 +1,7 @@
 ---
 # Security-related configurations, compliant with the DevSec Linux Baseline (https://github.com/dev-sec/linux-baseline).
-- name: Bastion host hardening
-  hosts: bastion
+- name: OS and SSH Hardening
+  hosts: harden
   become: yes
   roles:
     - dev-sec.os-hardening

@@ -1,28 +1,29 @@
-[local]
-HOLE
-NAS
-rPi
-SPARK
-ZODIAC
+[bastion]
+zodiac
 
 [docker]
-SPARK
+spark
+
+[firewall]
+zodiac
 
 [monitor]
-
-[nfs_clients]
-SPARK
+hole
+nas
+rpi
+spark
+zodiac
 
 [nfs_servers]
-NAS
+nas
 
 [ruby]
 
 [samba_servers]
-NAS
+nas
 
 [vm]
-HOLE
-NAS
-SPARK
-ZODIAC
+hole
+nas
+spark
+zodiac

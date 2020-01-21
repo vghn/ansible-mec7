@@ -7,8 +7,8 @@ nfs_exports:
 samba_netbios_name: NAS
 samba_server_string: 'NAS'
 samba_workgroup: WORKGROUP
-samba_load_printers: false
-samba_mitigate_cve_2017_7494: false
+samba_load_printers: 'no'
+samba_mitigate_cve_2017_7494: 'no'
 samba_users:
   - name: cmedia
     password: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/samba/users:data')['cmedia']}}"

@@ -5,48 +5,6 @@ deploy_ssh_rsa: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDGwpXPnFlUfexcGBJ+XKNeBGqI
 # System
 timezone: US/Mountain
 
-# Logs
-install_ca_certificates: true
-remote_logs_enabled: true
-remote_logs_server: 'listener.logz.io'
-remote_logs_port: '5001'
-remote_logs_permitted_peer: '*.logz.io'
-remote_logs_template:
-  name: 'logzFormatFileTagName'
-  string: '[{{ logzio_token }}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=syslog] %msg%\n'
-logzio_token: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/logzio:data')['token']}}"
-
-# Apt repositories
-apt_repositories:
-  - name: GIT
-    repo: ppa:git-core/ppa
-
-# OS Hardening
-sysctl_overwrite:
-  # Enable IPv4 traffic forwarding
-  net.ipv4.ip_forward: 1
-  # Do not disable IPv6
-  net.ipv6.conf.all.disable_ipv6: 0
-  # Enable IPv6 traffic forwarding
-  net.ipv6.conf.all.forwarding: 1
-  # Increase the amount of inotify watchers
-  fs.inotify.max_user_watches: 524288
-  # Do not change the default PTRACE value
-  kernel.yama.ptrace_scope: 0
-
-# SSH Hardening
-# Needed for Duplicacy SFTP
-sftp_enabled: true
-# Needed for the bastion host or for Visual Studio Code Remote SSH Connection
-ssh_allow_tcp_forwarding: 'yes'
-
-# Security
-security_autoupdate_enabled: true
-security_fail2ban_enabled: true
-
-# Firewall
-firewall_enabled: false
-
 # Accounts
 accounts:
   - name: vlad
@@ -64,3 +22,14 @@ accounts:
   - name: cmedia
     comment: Media User
     uid: 7777
+
+# Logs
+install_ca_certificates: true
+remote_logs_enabled: true
+remote_logs_server: 'listener.logz.io'
+remote_logs_port: '5001'
+remote_logs_permitted_peer: '*.logz.io'
+remote_logs_template:
+  name: 'logzFormatFileTagName'
+  string: '[{{ logzio_token }}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=syslog] %msg%\n'
+logzio_token: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/logzio:data')['token']}}"

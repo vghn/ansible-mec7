@@ -3,7 +3,7 @@
 mount_points:
   - name: NAS
     path: /data
-    src: 192.168.1.63:/data
+    src: 192.168.7.20:/data
     opts: hard,rsize=1048576,wsize=1048576,timeo=600,retrans=2,_netdev
     fstype: nfs
     owner: cmedia

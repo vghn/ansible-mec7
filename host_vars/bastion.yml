@@ -24,13 +24,15 @@ security_fail2ban_enabled: true
 
 # Firewall
 firewall_allowed_tcp_ports:
-  - '22' # SSH
+  - '22574' # SSH
   - '9100' # Prometheus
 firewall_allowed_udp_ports:
   - '9473' # WireGuard
 firewall_additional_rules:
   # WireGuard rules (IPv4 & IPv6)
   - "iptables -A FORWARD -i wg0 -j ACCEPT"
+  - "iptables -A FORWARD -o wg0 -j ACCEPT"
   - "iptables -t nat -A POSTROUTING -o {{ ansible_default_ipv4.alias }} -j MASQUERADE"
   - "ip6tables -A FORWARD -i wg0 -j ACCEPT"
+  - "ip6tables -A FORWARD -0 wg0 -j ACCEPT"
   - "ip6tables -t nat -A POSTROUTING -o {{ ansible_default_ipv4.alias }} -j MASQUERADE"

@@ -24,7 +24,7 @@ security_fail2ban_enabled: true
 
 # Firewall
 firewall_allowed_tcp_ports:
-  - '22574' # SSH
+  - '22' # SSH
   - '9100' # Prometheus
 firewall_allowed_udp_ports:
   - '9473' # WireGuard

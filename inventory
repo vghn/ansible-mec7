@@ -1,8 +1,6 @@
 [docker]
-spark
 
 [firewall]
-bastion
 
 [harden]
 bastion

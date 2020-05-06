@@ -33,6 +33,6 @@ jobs:
     - name: Get secrets from Vault
       run: vault kv get -field=id_rsa mec7/deploy > deploy_rsa && chmod 600 deploy_rsa
     - name: Download Ansible roles
-      run: ansible-galaxy install --force --role-file roles/requirements.yml
+      run: ansible-galaxy install --force --role-file requirements.yml
     - name: Run Ansible
       run: ansible-playbook site.yml

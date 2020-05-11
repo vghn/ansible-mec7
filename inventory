@@ -1,3 +1,9 @@
+bastion  ansible_host=home.mec7.dev  ansible_port=22574
+spark    ansible_host=192.168.7.183  ansible_ssh_extra_args='-J bastion'
+hole     ansible_host=192.168.7.13   ansible_ssh_extra_args='-J bastion'
+nas      ansible_host=192.168.7.20   ansible_ssh_extra_args='-J bastion'
+rpi      ansible_host=192.168.7.18   ansible_ssh_extra_args='-J bastion'
+
 [docker]
 
 [firewall]

@@ -1,8 +1,8 @@
 bastion  ansible_host=home.mec7.dev  ansible_port=22574
-spark    ansible_host=192.168.7.183  ansible_ssh_common_args='-J bastion'
-hole     ansible_host=192.168.7.13   ansible_ssh_common_args='-J bastion'
-nas      ansible_host=192.168.7.20   ansible_ssh_common_args='-J bastion'
-rpi      ansible_host=192.168.7.18   ansible_ssh_common_args='-J bastion'
+spark    ansible_host=192.168.7.183  ansible_ssh_common_args='-J ansible@home.mec7.dev:22574'
+hole     ansible_host=192.168.7.13   ansible_ssh_common_args='-J ansible@home.mec7.dev:22574'
+nas      ansible_host=192.168.7.20   ansible_ssh_common_args='-J ansible@home.mec7.dev:22574'
+rpi      ansible_host=192.168.7.18   ansible_ssh_common_args='-J ansible@home.mec7.dev:22574'
 
 [all:vars]
 ansible_user=ansible

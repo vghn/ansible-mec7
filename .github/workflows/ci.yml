@@ -33,6 +33,7 @@ jobs:
             echo ::set-env name=VAULT_TOKEN::$VAULT_TOKEN
     - name: Get secrets from Vault
       run: vault kv get -field=id_rsa mec7/deploy > deploy_rsa && chmod 600 deploy_rsa
+    - run: ansible-playbook playbooks/ansible.yml
     - run: ansible all -m ping
     # - name: Download Ansible roles
     #   run: ansible-galaxy install --force --role-file requirements.yml

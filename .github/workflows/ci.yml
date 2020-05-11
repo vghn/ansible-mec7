@@ -8,7 +8,8 @@ on:
     - cron:  '46 */6 * * *'
 
 jobs:
-  build:
+  run:
+    name: Run Ansible
     env:
       VAULT_VERSION: '1.4.0'
       VAULT_ADDR: 'https://vault.ghn.me:8200'

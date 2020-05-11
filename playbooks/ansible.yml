@@ -4,9 +4,6 @@
   become: yes
   gather_facts: false
   pre_tasks:
-  - name: Write the new host key to known hosts
-    connection: local
-    shell: "ssh-keyscan -H {{ inventory_hostname }} >> ~/.ssh/known_hosts"
   - name: Install Python for Ansible
     package:
       name: python3

@@ -5,6 +5,8 @@ nas      ansible_host=192.168.7.20
 rpi      ansible_host=192.168.7.18
 
 [all:vars]
+ansible_user=ansible
+ansible_ssh_private_key_file=~/.deploy_rsa
 ansible_ssh_common_args='-J bastion'
 
 [docker]

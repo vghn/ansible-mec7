@@ -9,15 +9,16 @@ on:
 
 jobs:
   run:
-    name: Run Ansible
+    name: Ansible
     env:
+      ANSIBLE_FORCE_COLOR: '1'
       VAULT_VERSION: '1.4.1'
       VAULT_ADDR: 'https://vault.ghn.me:8200'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
     - name: Install dependencies
       run: pip install --upgrade pip ansible hvac pycrypto paramiko
     - name: Install Vault

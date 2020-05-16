@@ -21,14 +21,3 @@ accounts:
   - name: cmedia
     comment: Media User
     uid: 7777
-
-# Logs
-install_ca_certificates: true
-remote_logs_enabled: true
-remote_logs_server: 'listener.logz.io'
-remote_logs_port: '5001'
-remote_logs_permitted_peer: '*.logz.io'
-remote_logs_template:
-  name: 'logzFormatFileTagName'
-  string: '[{{ logzio_token }}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=syslog] %msg%\n'
-logzio_token: "{{ lookup('hashi_vault', 'secret=mec7/data/ansible/logzio:data')['token']}}"

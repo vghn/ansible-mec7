@@ -20,7 +20,7 @@ nas
 [samba_servers]
 nas
 
-[vm]
+[virtual]
 hole
 nas
 spark

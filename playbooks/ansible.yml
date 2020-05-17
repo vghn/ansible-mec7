@@ -12,11 +12,13 @@
     user:
       name: ansible
       uid: 2674
+      state: present
   - name: Ansible user authorized keys
     authorized_key:
       user: ansible
       key: "{{ lookup('file', '../deploy_rsa.pub') }}"
       exclusive: yes
+      state: present
   - name: Add Ansible user to Sudoers
     lineinfile:
       path: /etc/sudoers.d/00_ansible

@@ -1,3 +1,23 @@
+# Hosts ########################################################################
+
+[gateway]
+bastion   ansible_host=home.mec7.dev  ansible_port=22574
+
+[remotes]
+hole      ansible_host=192.168.7.13
+nas       ansible_host=192.168.7.20
+rpi       ansible_host=192.168.7.18
+spark     ansible_host=192.168.7.183
+
+[all:vars]
+ansible_user=ansible
+ansible_ssh_private_key_file=deploy_rsa
+
+[remotes:vars]
+ansible_ssh_common_args='-J home.mec7.dev:22574'
+
+# Groups #######################################################################
+
 [docker]
 spark
 

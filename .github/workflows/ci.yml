@@ -26,4 +26,4 @@ jobs:
     - name: Download Ansible roles
       run: ansible-galaxy install --force --role-file requirements.yml
     - name: Run Ansible
-      run: ansible-playbook site.yml
+      run: ansible-playbook -vvv site.yml

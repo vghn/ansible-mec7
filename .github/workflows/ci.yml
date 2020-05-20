@@ -23,7 +23,10 @@ jobs:
       run: echo '${{ secrets.ANSIBLE_DEPLOY_KEY }}' > deploy_rsa && chmod 600 deploy_rsa
     - name: Get Ansible Vault password
       run: echo '${{ secrets.ANSIBLE_VAULT_PASSWORD }}' > vault_pwd && chmod 600 vault_pwd
-    - name: Download Ansible roles
-      run: ansible-galaxy install --force --role-file requirements.yml
-    - name: Run Ansible
-      run: ansible-playbook -vvv site.yml
+    - run: |
+        ls -lah ./
+        ansible -vvv all -m ping
+    # - name: Download Ansible roles
+    #   run: ansible-galaxy install --force --role-file requirements.yml
+    # - name: Run Ansible
+    #   run: ansible-playbook site.yml

@@ -11,14 +11,14 @@
   - name: Ansible user
     user:
       name: ansible
-      uid: 2674
       state: present
+      uid: 2674
   - name: Ansible user authorized keys
     authorized_key:
       user: ansible
       key: "{{ deploy_ssh_rsa }}"
-      exclusive: yes
       state: present
+      exclusive: yes
   - name: Add Ansible user to Sudoers
     lineinfile:
       path: /etc/sudoers.d/00_ansible
@@ -27,5 +27,3 @@
       mode: 0440
       create: yes
       validate: 'visudo -cf %s'
-  - name: Gather facts
-    setup:

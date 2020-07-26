@@ -6,7 +6,11 @@ deploy_ssh_rsa: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDGwpXPnFlUfexcGBJ+XKNeBGqI
 timezone: America/Phoenix
 
 # Accounts
-accounts:
+local_groups:
+  - name: admins
+    system: yes
+    sudo: yes
+local_users:
   - name: vlad
     comment: Vlad Ghinea
     groups: admins
@@ -22,5 +26,8 @@ accounts:
     authorized_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAN+Ge6UYazTf6rnwdBP7okOdyBNeMUW0pQYkN79ajis cosmin@mec7.com
   - name: cmedia
-    comment: Media User
+    shell: /usr/sbin/nologin
     uid: 7777
+
+# Slack
+slack_token: "{{ vault_slack_token }}"

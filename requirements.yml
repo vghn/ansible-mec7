@@ -1,20 +1,16 @@
 ---
 - src: bertvv.samba
 - src: cloudalchemy.node-exporter
-- src: https://github.com/dev-sec/ansible-os-hardening
-  name: dev-sec.os-hardening
-  version: master
-- src: https://github.com/dev-sec/ansible-ssh-hardening
-  name: dev-sec.ssh-hardening
-  version: master
+- src: dev-sec.os-hardening
+- src: dev-sec.ssh-hardening
 - src: geerlingguy.docker
 - src: geerlingguy.firewall
 - src: geerlingguy.nfs
 - src: geerlingguy.ntp
 - src: geerlingguy.pip
-- src: geerlingguy.repo-epel
 - src: geerlingguy.security
 - src: geerlingguy.swap
+- src: oefenweb.postfix
 - src: rvm.ruby
 - src: yatesr.timezone
 
@@ -29,7 +25,4 @@
   version: master
 - src: https://github.com/vladgh/ansible-role-shellcheck.git
   name: vladgh.shellcheck
-  version: master
-- src: https://github.com/vladgh/ansible-role-smtp.git
-  name: vladgh.smtp
   version: master

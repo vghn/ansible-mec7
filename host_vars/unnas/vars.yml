@@ -1,0 +1,34 @@
+---
+# NFS Server
+nfs_exports:
+  - '/HOME/media 192.168.7.12(rw,sync,no_subtree_check)'
+
+# Samba Server
+samba_netbios_name: UNnas
+samba_server_string: UNnas
+samba_workgroup: WORKGROUP
+samba_load_printers: 'no'
+samba_users: "{{ vault_samba_users }}"
+samba_shares:
+  - name: HOME
+    path: '/HOME'
+    writable: 'yes'
+    browseable: 'yes'
+    valid_users: 'cmedia'
+    owner: 'cmedia'
+    group: 'cmedia'
+    create_mode: '0664'
+    force_create_mode: '0664'
+    directory_mode: '0775'
+    force_directory_mode: '0775'
+  - name: MEC7
+    path: '/MEC7'
+    writable: 'yes'
+    browseable: 'yes'
+    valid_users: 'cmedia'
+    owner: 'cmedia'
+    group: 'cmedia'
+    create_mode: '0664'
+    force_create_mode: '0664'
+    directory_mode: '0775'
+    force_directory_mode: '0775'

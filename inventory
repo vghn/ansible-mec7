@@ -1,28 +1,38 @@
 [docker]
-spark
+unseed
 
 [firewall]
 
 [harden]
-bastion
+unjump
 
 [monitor]
-hole
-nas
-rpi
-spark
-bastion
+unjump
+unnas
+unseed
 
 [nfs_servers]
-nas
+unnas
+
+[postfix]
+
+[poxmox]
 
 [ruby]
 
 [samba_servers]
-nas
+unnas
+
+[slack]
+unjump
+unnas
+unseed
+
+[upgrade]
 
 [virtual]
-hole
-nas
-spark
-bastion
+unjump
+unnas
+unseed
+
+[wireguard]

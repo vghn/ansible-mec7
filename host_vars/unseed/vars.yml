@@ -1,0 +1,24 @@
+---
+# Mount points
+mount_points:
+  - name: UNnas
+    path: /data/MEDIA
+    src: 192.168.7.10:/HOME/media
+    opts: soft
+    fstype: nfs
+    owner: cmedia
+    group: cmedia
+
+# Cron Jobs
+cron_jobs:
+  - name: Docker Maintenance
+    minute: '3'
+    hour: '3'
+    weekday: '0'
+    job: ( cd /opt/seed; /usr/bin/docker-compose pull; /usr/bin/docker-compose up --detach --remove-orphans --force-recreate; docker system prune --all --force ) 2>&1 | /usr/bin/logger -t DockerMaintenance
+
+# Additional packages
+additional_packages:
+  - intel-media-va-driver-non-free
+  - i965-va-driver
+  - libmfx1

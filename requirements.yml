@@ -20,6 +20,9 @@
 - src: https://github.com/vladgh/ansible-role-hashicorp.git
   name: vladgh.hashicorp
   version: master
+- src: https://github.com/vladgh/ansible-role-logs.git
+  name: vladgh.logs
+  version: master
 - src: https://github.com/vladgh/ansible-role-qemu_guest_agent.git
   name: vladgh.qemu_guest_agent
   version: master

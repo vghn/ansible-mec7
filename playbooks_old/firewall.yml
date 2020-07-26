@@ -1,6 +1,0 @@
----
-- name: Firewall
-  hosts: firewall
-  become: yes
-  roles:
-    - geerlingguy.firewall

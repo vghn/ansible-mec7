@@ -1,6 +1,0 @@
----
-- name: Monitor
-  hosts: monitor
-  become: yes
-  roles:
-    - cloudalchemy.node-exporter

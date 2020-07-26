@@ -1,9 +1,0 @@
----
-# Security-related configurations, compliant with the DevSec Linux Baseline (https://github.com/dev-sec/linux-baseline).
-- name: Harden
-  hosts: harden
-  become: yes
-  roles:
-    - dev-sec.os-hardening
-    - dev-sec.ssh-hardening
-    - geerlingguy.security

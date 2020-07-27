@@ -60,3 +60,7 @@ postfix_header_checks:
   - pattern: '/From:.*/'
     action: 'REPLACE'
     text: 'From: Cosmin <cosmin@mec7.com>'
+
+# WireGuard
+wireguard_server: "{{ vault_wireguard_server }}"
+wireguard_clients: "{{ vault_wireguard_clients }}"
